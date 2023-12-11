@@ -6,11 +6,11 @@ source .env
 max_count=$1
 
 function enable_airplane_mode {
-  am broadcast -a net.dinglish.tasker.airplane -e enabled 1 &> /dev/null
+  termux-api-start && termux-notification -t airplane -c 1
 }
 
 function disable_airplane_mode {
-  am broadcast -a net.dinglish.tasker.airplane -e enabled 0 &> /dev/null
+  termux-api-start && termux-notification -t airplane -c 0
 }
 
 function toggle_airplane_mode {
