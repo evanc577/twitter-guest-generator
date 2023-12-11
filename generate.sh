@@ -21,12 +21,12 @@ function toggle_airplane_mode {
 
 function cleanup {
   disable_airplane_mode
-  termux-wifi-enable true &> /dev/null
+  echo "Remember to re-enable wifi manually"
 }
 trap cleanup EXIT
 
 # Disable wifi
-termux-wifi-enable false &> /dev/null
+read -p "Turn off wifi manually (enter to continue)" </dev/tty
 
 count=0
 echo Getting $max_count guest tokens >&2
